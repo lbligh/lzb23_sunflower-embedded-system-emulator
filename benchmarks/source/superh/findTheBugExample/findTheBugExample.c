@@ -2,47 +2,43 @@
 #include "print.h"
 
 /*	8 GPRs + PR		*/
-unsigned char	REGSAVESTACK[36];
+unsigned char REGSAVESTACK[36];
 
-static void		hdlr_install(void);
-volatile int		gFlag = 1;
+static void hdlr_install(void);
+volatile int gFlag = 1;
 
-int
-main(void)
+int main(void)
 {
-	int	i = 0;
+    int i = 0;
 
-	hdlr_install();
+    hdlr_install();
 
-	while (gFlag)
-	{
-		printf("Counting, %d...\n", i++);
-	}
+    while (gFlag)
+    {
+        print("Counting, %d...\n", i++);
+    }
 
-	return 0;
+    return 0;
 }
 
-void
-intr_hdlr(void)
+void intr_hdlr(void)
 {
-	gFlag = 0;
+    gFlag = 0;
 
-	return;
+    return;
 }
 
-void
-hdlr_install(void)
+void hdlr_install(void)
 {
-	extern	unsigned char	vec_stub_begin, vec_stub_end;
-	unsigned char *		dstptr = (unsigned char *)0x8000600;
-	unsigned char *		srcptr = &vec_stub_begin;
+    extern unsigned char vec_stub_begin, vec_stub_end;
+    unsigned char *dstptr = (unsigned char *)0x8000600;
+    unsigned char *srcptr = &vec_stub_begin;
 
+    /*	Copy the vector instructions to vector base	*/
+    while (srcptr < &vec_stub_end)
+    {
+        *dstptr++ = *srcptr++;
+    }
 
-	/*	Copy the vector instructions to vector base	*/
-	while (srcptr < &vec_stub_end)
-	{
-		*dstptr++ = *srcptr++;
-	}
-
-	return;
+    return;
 }

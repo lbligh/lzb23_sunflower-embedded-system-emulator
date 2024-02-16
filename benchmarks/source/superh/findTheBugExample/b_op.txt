@@ -1,0 +1,78 @@
+lzb23@ip-172-31-2-151:~/lzb23_sunflower-embedded-system-emulator/benchmarks/source/superh/findTheBugExample$ sf run.m 
+Initialized random number generator with seed 33277623...
+
+Sunflower 1.1 (build 10-15-2021-20:01:31-phillip@ip-172-31-2-151-Linux)
+Authored, 1999-2018: Phillip Stanley-Marbell <phillip.stanleymarbell@gmail.com>. 2018-onwards: See CONTRIBUTORS.TXT.
+This software is provided with ABSOLUTELY NO WARRANTY. Read LICENSE.txt
+
+New node created with node ID 0
+Loading run.m...
+Set memory size to 128 Kilobytes
+Cache deactivated
+Loading S-RECORD to memory at address 0x8004000
+[M] Done.
+Function param "device" on stack, typename "int", fn start=0x80040a0, frame offset=4,   ptr=0
+Function param "ch" on stack, typename "unsigned char", fn start=0x80040a0, frame offset=0,     ptr=0
+Function param "device" on stack, typename "int", fn start=0x80040f0, frame offset=4,   ptr=0
+Function param "ch" on stack, typename "unsigned char", fn start=0x80040f0, frame offset=0,     ptr=0
+Function param "usecs" on stack, typename "long unsigned int", fn start=0x8004124, frame offset=0,      ptr=0
+Stack var "max" in fn scope, typename "int", fn start=0x8004124, frame offset=8,        ptr=0
+Stack var "i" in fn scope, typename "int", fn start=0x8004124, frame offset=4,  ptr=0
+Function param "y" on stack, typename "int", fn start=0x800417a, frame offset=0,        ptr=0
+Stack var "i" in fn scope, typename "int", fn start=0x800417a, frame offset=8,  ptr=0
+Stack var "ret" in fn scope, typename "int", fn start=0x800417a, frame offset=4,        ptr=0
+Stack var "usecs" in fn scope, typename "long unsigned int", fn start=0x80041e0, frame offset=0,        ptr=0
+Global variable "REGSAVESTACK" in global scope, typename "(null)",      ptr=0
+Global variable "gFlag" in global scope, typename "int",        ptr=0
+Stack var "i" in fn scope, typename "int", fn start=0x8004240, frame offset=0,  ptr=0
+Stack var "dstptr" in fn scope, typename "(null)", fn start=0x80042b8, frame offset=4,  ptr=0
+Stack var "srcptr" in fn scope, typename "(null)", fn start=0x80042b8, frame offset=0,  ptr=0
+args = [], argc = 0
+R4 = [0x00000000], R5 = [0x0801fef0]
+Running...
+
+
+[ID=0 of 1][PC=0x8004000][3.3E+00V, 6.0E+01MHz] Heap and stack collision
+
+
+NODE 0 exiting...
+User Time elapsed = 0.001061 seconds.
+Simulated CPU Time elapsed = 6.638333E-05 seconds.
+Simulated Clock Cycles = 3983
+Cycles Spent Waiting = 0 (0.00%)
+Instruction Simulation Rate = 3754005.66 Cycles/Second.
+
+
+
+[ID=0 of 1][PC=0x8004c1c][3.3E+00V, 6.0E+01MHz] dumpregs
+R0              1111 1111 1111 1111 1111 1111 1111 1111   [0xffffffff]
+R1              0000 0000 0000 0000 0000 0000 0000 0000   [0x00000000]
+R2              0000 1000 0000 0000 1110 1000 0011 1100   [0x0800e83c]
+R3              0000 1000 0000 0000 1101 1100 1000 0100   [0x0800dc84]
+R4              0000 0000 0000 0000 0000 0000 0000 0001   [0x00000001]
+R5              0000 0000 0000 0000 1101 1110 1010 1101   [0x0000dead]
+R6              0000 0000 0000 0000 0000 0000 0000 0000   [0x00000000]
+R7              0000 0000 0000 0000 0000 0000 0000 0000   [0x00000000]
+R8              0000 1000 0000 0000 1110 1000 0011 1100   [0x0800e83c]
+R9              0000 1000 0000 0000 1110 0000 1001 1000   [0x0800e098]
+R10             0000 0000 0000 0000 0000 0100 0001 1000   [0x00000418]
+R11             0000 1000 0000 0000 1101 1100 1000 1100   [0x0800dc8c]
+R12             0000 0000 0000 0000 0000 0100 0001 1000   [0x00000418]
+R13             0000 0000 0000 0000 0000 0000 0000 0000   [0x00000000]
+R14             0000 0000 0000 0100 0000 0000 0000 0000   [0x00040000]
+R15             0000 1000 0000 0000 0111 1110 0010 1100   [0x08007e2c]
+[ID=0 of 1][PC=0x8004c1c][3.3E+00V, 6.0E+01MHz] pcbt
+
+   0:   PC = [0x00000000], Frame Pointer (R14) = [0x00000000]
+   1:   PC = [0x08004240], Frame Pointer (R14) = [0x08007ff4]
+   2:   PC = [0x08004934], Frame Pointer (R14) = [0x08007ff4]
+   3:   PC = [0x08004c28], Frame Pointer (R14) = [0x08007ff4]
+   4:   PC = [0x08006b48], Frame Pointer (R14) = [0x08007ff4]
+   5:   PC = [0x08008a9c], Frame Pointer (R14) = [0x08007ff4]
+   6:   PC = [0x08004348], Frame Pointer (R14) = [0x00040000]
+   7:   PC = [0x08004964], Frame Pointer (R14) = [0x00040000]
+   8:   PC = [0x08004a64], Frame Pointer (R14) = [0x00040000]
+   9:   PC = [0x08006c38], Frame Pointer (R14) = [0x00040000]
+  10:   PC = [0x08009ad8], Frame Pointer (R14) = [0x00040000]
+
+[ID=0 of 1][PC=0x8004c1c][3.3E+00V, 6.0E+01MHz] 

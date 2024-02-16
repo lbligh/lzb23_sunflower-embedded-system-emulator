@@ -1,4 +1,5 @@
-TREEROOT	= ../../../..
+# TREEROOT	= ../../../..
+TREEROOT=/data/f-of-e-tools/tools/sunflower
 
 include $(TREEROOT)/conf/setup.conf
 
@@ -6,7 +7,7 @@ TARGET		= superH
 TARGET-ARCH	= sh-elf
 
 PROGRAM		= findTheBugExample
-LIBOS		= mOS
+LIBOS		= eOS
 
 PORT		= ../../port
 SIMDIR		= $(TREEROOT)/sim
